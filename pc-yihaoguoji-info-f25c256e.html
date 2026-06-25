@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>壹号国际 · 持续关注的数字起点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: #f9fbfc;
+            color: #1a2b32;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0 16px;
+            border-bottom: 1px solid rgba(0, 130, 130, 0.12);
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .logo-icon {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: -.5px;
+            color: #126b6b;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .logo-icon span {
+            background: #126b6b;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px 2px 8px 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-size: 0.95rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #2e4a4a;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #1a8f8f;
+            color: #0f5555;
+        }
+        .nav-extra {
+            color: #3b6b6b;
+            font-size: 0.9rem;
+            background: #e1f0f0;
+            padding: 6px 14px;
+            border-radius: 40px;
+        }
+
+        /* hero 区域 — 轻量，知识感 */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px 40px;
+            margin-bottom: 60px;
+            align-items: flex-end;
+        }
+        .hero-text {
+            flex: 2 1 300px;
+        }
+        .hero-text h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #0b3d3d;
+            margin-bottom: 16px;
+        }
+        .hero-text h1 small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #2f6868;
+            margin-top: 8px;
+            letter-spacing: 0.2px;
+        }
+        .hero-text p {
+            color: #2e4d4d;
+            max-width: 540px;
+            margin: 18px 0 24px;
+        }
+        .hero-highlight {
+            background: #d5ecec;
+            display: inline-block;
+            padding: 2px 16px 2px 12px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #004d4d;
+            border-left: 4px solid #008080;
+        }
+        .hero-visual {
+            flex: 1 1 200px;
+            background: linear-gradient(145deg, #d2e9e9, #b8d5d5);
+            border-radius: 60px 20px 60px 20px;
+            min-height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #155757;
+            font-weight: 500;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 16px -8px rgba(0,80,80,0.08);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 网格卡片 —— 三个场景模块 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 50px 0 60px;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 28px 22px 30px;
+            box-shadow: 0 4px 12px rgba(0, 70, 70, 0.04), 0 0 0 1px #e3efef;
+            transition: all 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 12px 24px -8px rgba(0, 100, 100, 0.08), 0 0 0 1px #b0d6d6;
+            transform: translateY(-3px);
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+            display: inline-block;
+            background: #def0f0;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            border-radius: 16px;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1b5050;
+            margin: 14px 0 8px;
+        }
+        .card p {
+            color: #375757;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+        .card-meta {
+            color: #1a7a7a;
+            font-size: 0.85rem;
+            border-top: 1px dashed #c9e0e0;
+            padding-top: 12px;
+            margin-top: 6px;
+        }
+
+        /* 常见说明区 — FAQ 摘要 */
+        .faq-section {
+            background: #f0f7f7;
+            border-radius: 40px;
+            padding: 34px 30px 30px;
+            margin: 20px 0 50px;
+        }
+        .faq-section h2 {
+            font-size: 1.6rem;
+            font-weight: 480;
+            color: #0f4a4a;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px 30px;
+            margin-top: 20px;
+        }
+        .faq-item {
+            padding: 4px 0;
+            border-bottom: 1px solid #c2dbdb;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #105555;
+            margin-bottom: 4px;
+            font-size: 0.98rem;
+        }
+        .faq-item p {
+            color: #2a5a5a;
+            font-size: 0.9rem;
+        }
+
+        /* 书签提示段 */
+        .bookmark-note {
+            background: white;
+            border-left: 5px solid #1f8f8f;
+            padding: 20px 24px;
+            border-radius: 30px 12px 12px 30px;
+            margin: 50px 0 30px;
+            box-shadow: 0 2px 6px rgba(0,60,60,0.02);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px 20px;
+        }
+        .bookmark-note p {
+            flex: 1;
+            color: #1f4f4f;
+        }
+        .bookmark-note .tag {
+            background: #c2e3e3;
+            padding: 6px 22px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #004f4f;
+            white-space: nowrap;
+        }
+
+        /* 底部 */
+        footer {
+            border-top: 1px solid #d1e3e3;
+            padding: 24px 0 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            color: #3d6b6b;
+            font-size: 0.88rem;
+        }
+        footer a {
+            color: #126b6b;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding-bottom: 12px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 16px 20px;
+            }
+            .hero-text h1 {
+                font-size: 1.9rem;
+            }
+            .hero-visual {
+                min-height: 100px;
+                font-size: 1rem;
+                width: 100%;
+            }
+            .grid-cards {
+                gap: 16px;
+            }
+            .faq-section {
+                padding: 24px 18px;
+            }
+            .bookmark-note {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        @media (max-width: 480px) {
+            .page {
+                padding: 0 14px;
+            }
+            .card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 导航 -->
+    <nav>
+        <div class="logo-icon">
+            <span>①</span> 壹号国际
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">再访</a></li>
+            <li><a href="#">场景</a></li>
+            <li><a href="#">说明</a></li>
+            <li><a href="#">收藏</a></li>
+        </ul>
+        <div class="nav-extra">关注 · 常回</div>
+    </nav>
+
+    <!-- Hero 区域 —— 再次访问与收藏的起点 -->
+    <div class="hero">
+        <div class="hero-text">
+            <h1>
+                数字站点 · 持续回访
+                <small>从一次浏览到长期关注</small>
+            </h1>
+            <p>
+                每次打开浏览器、翻看标签页或书签列表，总有一些名字值得再次停留。
+                <a href="https://pc-yihaoguoji.com" style="color: #126b6b; text-decoration: underline; text-underline-offset: 3px; font-weight: 500;">壹号国际</a>
+                就是这样一个位置——它不追求短暂曝光，而在于成为你持续关注的信息锚点。
+            </p>
+            <div class="hero-highlight">✦ 知识型浏览 · 轻量导航</div>
+        </div>
+        <div class="hero-visual">
+            ⚲ 常看常新
+        </div>
+    </div>
+
+    <!-- 三个场景模块 —— 网格卡片 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-icon">📑</div>
+            <h3>再次访问的习惯</h3>
+            <p>收藏夹里总有不想丢失的页面。隔段时间回去看看，内容更新、栏目调整，熟悉中带着变化——这正是持续关注带来的节奏感。</p>
+            <div class="card-meta">间隔 · 自然回访</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔖</div>
+            <h3>收藏的深层价值</h3>
+            <p>不是所有链接都适合一次关闭。那些值得反复阅读、对照参考、或作为日常出发点的站点，需要用书签固定下来。</p>
+            <div class="card-meta">管理 · 分类 · 沉淀</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🔄</div>
+            <h3>关注而非订阅</h3>
+            <p>关注是一种主动行为。不需要推送提醒，而是自己选择在某个时刻重新打开。保持距离，反而让每次访问更有意图。</p>
+            <div class="card-meta">主动感知 · 克制连接</div>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-section">
+        <h2>关于持续关注的几点说明</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <strong>页面会定期调整吗？</strong>
+                <p>结构与内容会依据使用反馈逐步优化，但核心信息区保持稳定，方便回访时快速定位。</p>
+            </div>
+            <div class="faq-item">
+                <strong>收藏后有哪些变化？</strong>
+                <p>将链接加入书签，即可随时通过浏览器打开。页面的轻量设计也适合移动端标签页长期保留。</p>
+            </div>
+            <div class="faq-item">
+                <strong>什么是“关注而非订阅”？</strong>
+                <p>不强制通知或推送，把主动权留给浏览者。你决定访问频率，页面只负责提供干净的内容结构。</p>
+            </div>
+            <div class="faq-item">
+                <strong>可以分享给其他人吗？</strong>
+                <p>当然。如果朋友也对这个方向感兴趣，直接分享链接即可。我们不追踪来源，只关心是否对你有用。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 收藏提示块 -->
+    <div class="bookmark-note">
+        <p>💡 如果你觉得这个页面值得再次回来，不妨现在就把它加入浏览器的书签，或者保留在常用标签页中。</p>
+        <span class="tag">⌘ + D / Ctrl + D</span>
+    </div>
+
+    <!-- 底部 -->
+    <footer>
+        <span>⏳ 持续更新的数字起点 · <a href="https://pc-yihaoguoji.com" style="font-weight: 500;">壹号国际</a></span>
+        <span style="color: #527777;">常访 · 常新</span>
+    </footer>
+
+</div>
+</body>
+</html>
